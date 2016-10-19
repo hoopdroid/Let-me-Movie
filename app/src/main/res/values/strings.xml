@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Let me Movie</string>
+    <string name="kinopoisk_image_url" translatable="false">https://st.kp.yandex.net/images/film_big/</string>
+    <string name="kinopoisk_actor_url" translatable="false">https://st.kp.yandex.net/images/actor_iphone/iphone360_</string>
+    <string name="kinopoisk_gallery_url" translatable="false">https://st.kinopoisk.ru/images/</string>
+    <string name="kinopoisk_gallery_hd_url" translatable="false">https://st.kinopoisk.ru/images/kadr//</string>
+    <string name="kinopoisk_news_image_url" translatable="false">https://st.kp.yandex.net/images/</string>
+    <string name="google_api_key" translatable="false">AIzaSyDC2DyhJ5qGjat2sVlQTuGYMBiPcTKyY8w</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_first_start" translatable="false">FirstStartActivity</string>
+    <string name="title_activity_cinema" translatable="false">CinemaActivity</string>
+
+</resources>

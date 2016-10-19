@@ -1,0 +1,29 @@
+<LinearLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:src="@drawable/ic_account_circle_blue_grey_200_24dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:id="@+id/img_staff_face"
+        app:civ_border_color="@color/primary_dark"
+        app:civ_border_width="2dp"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="10"
+        app:civ_shadow_color="@color/accent"/>
+
+    <TextView
+        android:paddingBottom="8dp"
+        android:gravity="center_horizontal"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_staff_name"
+        android:text="Тим Бертон Крис Нолан Еще Люди"
+        android:textColor="@color/secondary_text"
+        android:textStyle="normal|italic"
+        android:textSize="10sp" />
+
+</LinearLayout>
