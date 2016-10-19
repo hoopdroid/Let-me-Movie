@@ -14,8 +14,5 @@ Let me Movie android app
 * MaterialViewPager library https://github.com/florent37/MaterialViewPager
 * MaterialDrawer by Mike Penz https://github.com/mikepenz/MaterialDrawer
 
-![alt text](https://pp.vk.me/c630028/v630028401/4c208/qCbdHdu8AIc.jpgg "Screenshots")
+![alt text](https://pp.vk.me/c630028/v630028401/4c23c/xDNdBRZ6dcg.jpg "Screenshots")
 ![alt text](https://pp.vk.me/c630028/v630028401/4c210/jz_jKKBCB3s.jpg "Screenshots")
-
-![alt text](https://pp.vk.me/c630028/v630028401/4c270/Svs1yBzlaXc.jpg "Screenshots")
-![alt text](https://pp.vk.me/c630028/v630028401/4c268/vHHtlnTOr88.jpg "Screenshots")
