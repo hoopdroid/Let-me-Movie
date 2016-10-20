@@ -1,6 +1,6 @@
 # Let-me-Movie
 Let me Movie android app
-### DOWNLOAD APK LINK https://drive.google.com/file/d/0B2TD8zebQE3JOVdVNjhVWkZhbXM/view?usp=sharing
+### DOWNLOAD APK LINK https://goo.gl/jYbDPO
 
 ![alt text](https://pp.vk.me/c630028/v630028401/4c270/Svs1yBzlaXc.jpg "LetMeMovie")
 ![alt text](https://pp.vk.me/c630028/v630028401/4c268/vHHtlnTOr88.jpg)
