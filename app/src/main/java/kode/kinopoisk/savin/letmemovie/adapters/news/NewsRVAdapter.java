@@ -5,36 +5,29 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import kode.kinopoisk.savin.letmemovie.R;
-import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.TodayMovieModel;
 import kode.kinopoisk.savin.letmemovie.data.models.news.NewsModel;
-import kode.kinopoisk.savin.letmemovie.navigator.ActivityNavigator;
 import kode.kinopoisk.savin.letmemovie.util.ImageUrlPatterMatcher;
 
 /**
- * An adapter for the list of MovieModels
+ * An adapter for the list of NewsModel
  */
 public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder> {
 
     private List<NewsModel> newsList;
     private final Context context;
-
 
     @Override
     public void onViewDetachedFromWindow(ViewHolder holder) {
@@ -57,7 +50,6 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
-
 
         viewHolder.movieText.setText(newsList.get(i).getNewsDescription());
         Picasso.with(context).load(ImageUrlPatterMatcher.getNewsImageUrl((Activity)context, newsList.get(i).getNewsImagePreviewURL()))

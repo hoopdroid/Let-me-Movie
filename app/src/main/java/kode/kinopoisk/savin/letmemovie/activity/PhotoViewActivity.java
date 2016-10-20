@@ -2,7 +2,6 @@ package kode.kinopoisk.savin.letmemovie.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 

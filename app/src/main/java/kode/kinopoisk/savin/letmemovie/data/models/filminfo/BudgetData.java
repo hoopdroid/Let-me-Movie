@@ -1,9 +1,10 @@
 
 package kode.kinopoisk.savin.letmemovie.data.models.filminfo;
 
-;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+;
 
 
 public class BudgetData {

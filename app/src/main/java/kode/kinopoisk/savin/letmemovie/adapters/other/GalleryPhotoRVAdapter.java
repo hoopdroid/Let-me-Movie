@@ -21,15 +21,12 @@ import kode.kinopoisk.savin.letmemovie.navigator.ActivityNavigator;
 import kode.kinopoisk.savin.letmemovie.util.ImageUrlPatterMatcher;
 
 /**
- * An adapter for the list of MovieModels
+ * An adapter for the list of GalleryPhoto
  */
 public class GalleryPhotoRVAdapter extends RecyclerView.Adapter<GalleryPhotoRVAdapter.ViewHolder> {
 
     private List<Gallery> galleryModelList;
     private final Context context;
-    private int lastPosition = -1;
-    private boolean isMovieModelLikedByUser;
-    private String userIdString;
 
     @Override
     public void onViewDetachedFromWindow(ViewHolder holder) {

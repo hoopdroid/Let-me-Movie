@@ -18,15 +18,12 @@ import kode.kinopoisk.savin.letmemovie.navigator.ActivityNavigator;
 import kode.kinopoisk.savin.letmemovie.util.PrefUtil;
 
 /**
- * An adapter for the list of MovieModels
+ * An adapter for the list of CityModel
  */
 public class SelectCityRVAdapter extends RecyclerView.Adapter<SelectCityRVAdapter.ViewHolder> {
 
     private List<CityModel> cityModelList;
     private final Context context;
-    private int lastPosition = -1;
-    private boolean isMovieModelLikedByUser;
-    private String userIdString;
 
     @Override
     public void onViewDetachedFromWindow(ViewHolder holder) {

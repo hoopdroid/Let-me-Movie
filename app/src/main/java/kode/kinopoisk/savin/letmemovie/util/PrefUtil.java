@@ -1,6 +1,5 @@
 package kode.kinopoisk.savin.letmemovie.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;

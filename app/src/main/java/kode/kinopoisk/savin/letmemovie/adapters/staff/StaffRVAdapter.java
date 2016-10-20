@@ -21,15 +21,12 @@ import kode.kinopoisk.savin.letmemovie.data.models.staff.StaffMovieModel;
 import kode.kinopoisk.savin.letmemovie.util.ImageUrlPatterMatcher;
 
 /**
- * An adapter for the list of MovieModels
+ * An adapter for the list of StaffMovieModel
  */
 public class StaffRVAdapter extends RecyclerView.Adapter<StaffRVAdapter.ViewHolder> {
 
     private List<StaffMovieModel> staffModelList;
     private final Context context;
-    private int lastPosition = -1;
-    private boolean isMovieModelLikedByUser;
-    private String userIdString;
 
     @Override
     public void onViewDetachedFromWindow(ViewHolder holder) {

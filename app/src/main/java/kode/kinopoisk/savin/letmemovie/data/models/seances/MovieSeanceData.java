@@ -1,10 +1,11 @@
 
 package kode.kinopoisk.savin.letmemovie.data.models.seances;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.VideoURL;
 

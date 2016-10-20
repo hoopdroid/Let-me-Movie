@@ -14,17 +14,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
+
 import butterknife.Bind;
 import kode.kinopoisk.savin.letmemovie.R;
 import kode.kinopoisk.savin.letmemovie.adapters.seance.SeanceRVAdapter;
 import kode.kinopoisk.savin.letmemovie.components.Constants;
 import kode.kinopoisk.savin.letmemovie.data.DataService;
+import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.IMovie;
 import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.SoonMovieModel;
+import kode.kinopoisk.savin.letmemovie.data.models.seances.MovieSeanceData;
 import kode.kinopoisk.savin.letmemovie.fragment.FilmInfoFragment;
 import kode.kinopoisk.savin.letmemovie.fragment.StaffFragment;
-import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.IMovie;
-import kode.kinopoisk.savin.letmemovie.data.models.seances.MovieSeanceData;
 import kode.kinopoisk.savin.letmemovie.navigator.FragmentNavigator;
 import kode.kinopoisk.savin.letmemovie.util.DateUtil;
 import kode.kinopoisk.savin.letmemovie.util.ImageUrlPatterMatcher;

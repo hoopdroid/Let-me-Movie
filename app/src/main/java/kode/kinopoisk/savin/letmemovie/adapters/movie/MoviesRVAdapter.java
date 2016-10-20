@@ -5,19 +5,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,15 +23,13 @@ import kode.kinopoisk.savin.letmemovie.navigator.ActivityNavigator;
 import kode.kinopoisk.savin.letmemovie.util.ImageUrlPatterMatcher;
 
 /**
- * An adapter for the list of MovieModels
+ * An adapter for the list of TodayMovieModels
  */
 public class MoviesRVAdapter extends RecyclerView.Adapter<MoviesRVAdapter.ViewHolder> {
 
     private List<TodayMovieModel> todayMovieModelsList;
     private final Context context;
     private int lastPosition = -1;
-    private boolean isMovieModelLikedByUser;
-    private String userIdString;
 
     private int cityID;
 
@@ -71,32 +65,7 @@ public class MoviesRVAdapter extends RecyclerView.Adapter<MoviesRVAdapter.ViewHo
         Picasso.with(context).load(ImageUrlPatterMatcher.getImageUrl((Activity)context, todayMovieModelsList.get(i).getPosterURL()))
                 .into(viewHolder.movieImage);
 
-
-        int a = 5;
-
-      //  addAnimationToPostItem(viewHolder,i);
-
-
-
     }
-
-    private void addAnimationToPostItem(ViewHolder viewHolder, int i) {
-        Animation animation = AnimationUtils.loadAnimation(context,
-                (i > lastPosition) ? R.anim.up_from_bottom
-                        : R.anim.down_to_top);
-        viewHolder.itemView.startAnimation(animation);
-        lastPosition = i;
-    }
-
-
-
-    private void addClickableLinkToText(ViewHolder viewHolder) {
-        viewHolder.movieText.setLinksClickable(true);
-        Pattern httpPattern = Pattern.compile("[a-z]+:\\/\\/[^ \\n]*");
-        Linkify.addLinks(viewHolder.movieText, httpPattern,"");
-    }
-
-
 
     @Override
     public int getItemCount() {
@@ -133,19 +102,4 @@ public class MoviesRVAdapter extends RecyclerView.Adapter<MoviesRVAdapter.ViewHo
 
             }
         }
-
-
-    /**
-     * Here is the key method to apply the animation
-     */
-    private void setAnimation(View viewToAnimate, int position)
-    {
-        // If the bound view wasn't previously displayed on screen, it's animated
-        if (position > lastPosition)
-        {
-            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-            viewToAnimate.startAnimation(animation);
-            lastPosition = position;
-        }
-    }
 }

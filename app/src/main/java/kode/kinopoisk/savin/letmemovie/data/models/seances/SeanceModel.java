@@ -4,10 +4,11 @@ package kode.kinopoisk.savin.letmemovie.data.models.seances;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SeanceModel implements Parcelable {
