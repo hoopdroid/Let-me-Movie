@@ -83,6 +83,7 @@ public class SelectCityRVAdapter extends RecyclerView.Adapter<SelectCityRVAdapte
             if(v== cityName)
             {
                 PrefUtil.setUserCity(context,cityModelList.get(getPosition()).getCityID());
+
                 ActivityNavigator.startMainActivity(context);
 
             }

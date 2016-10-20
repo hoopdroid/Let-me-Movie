@@ -193,7 +193,7 @@ public class MainActivity extends BaseActivity{
                                 mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        setDrawer(mToolbar,MainActivity.this,itemMain,itemMap,itemSettings,headerResult,2).openDrawer();
+                                       // setDrawer(mToolbar,MainActivity.this,itemMain,itemMap,itemSettings,headerResult,2).openDrawer();
                                     }
                                 });
                                 mFrame.setVisibility(View.VISIBLE);
@@ -207,7 +207,7 @@ public class MainActivity extends BaseActivity{
                         }
                         return false;
                     }
-                }).withSelectedItemByPosition(position)
+                })
                 .build();
         return result;
     }

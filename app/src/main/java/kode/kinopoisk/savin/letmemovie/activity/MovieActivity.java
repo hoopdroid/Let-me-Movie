@@ -78,7 +78,8 @@ public class MovieActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
            mPostImage.setTransitionName(Constants.IMAGE_TRANSITION);
         }
-
+        if(mMovieModel!=null && mMovieModel.getNameRU()!=null)
+        mToolbar.setTitle(mMovieModel.getNameRU());
         setSupportActionBar(mToolbar);
 
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
@@ -136,10 +137,9 @@ public class MovieActivity extends BaseActivity {
             if(mMovieModel.getPosterURL()!=null)
                 Picasso.with(this).load(ImageUrlPatterMatcher.getImageUrl(this, mMovieModel.getPosterURL()))
                         .into(mPostImage);
-
             FragmentNavigator.showStaffFragment(this, StaffFragment.newInstance(this, mMovieModel.getId()));
             FragmentNavigator.showInfoFragment(this, FilmInfoFragment.newInstance(this, mMovieModel.getId()));
-            mToolbar.setTitle(mMovieModel.getNameRU());
+
             }
 
     }
