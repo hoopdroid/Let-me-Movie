@@ -16,14 +16,12 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import kode.kinopoisk.savin.letmemovie.R;
-import kode.kinopoisk.savin.letmemovie.components.CustomComparator;
 import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.TodayMovieModel;
 import kode.kinopoisk.savin.letmemovie.navigator.ActivityNavigator;
 import kode.kinopoisk.savin.letmemovie.util.ImageUrlPatterMatcher;

@@ -67,6 +67,8 @@ public abstract class AbstractMoviesFragment extends Fragment implements View.On
         fab1.setOnClickListener(this);
         fab2.setOnClickListener(this);
 
+        hideFab();
+
 
         return view;
 

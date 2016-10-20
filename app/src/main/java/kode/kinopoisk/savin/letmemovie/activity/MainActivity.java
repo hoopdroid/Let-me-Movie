@@ -35,7 +35,6 @@ import kode.kinopoisk.savin.letmemovie.util.DateUtil;
 
 public class MainActivity extends BaseActivity{
 
-    @Bind(R.id.materialViewPager)
     MaterialViewPager mViewPager;
     @Bind(R.id.mainFrame)
     FrameLayout mFrame;
@@ -69,6 +68,8 @@ public class MainActivity extends BaseActivity{
 
 
     private void initViewElements() {
+
+        mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
         mToolbar= mViewPager.getToolbar();
         initDrawer(mToolbar,this);
 
@@ -137,12 +138,10 @@ public class MainActivity extends BaseActivity{
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
-
-
     }
 
 
-    public void initDrawer(android.support.v7.widget.Toolbar toolbar, final Activity activity) {
+    public void initDrawer(final android.support.v7.widget.Toolbar toolbar, final Activity activity) {
 
         PrimaryDrawerItem itemMain = new PrimaryDrawerItem().withName("Фильмы").withIcon(R.drawable.ic_movie_blue_grey_600_24dp);
         PrimaryDrawerItem itemMap = new PrimaryDrawerItem().withName("Карта кинотеатров").withIcon(R.drawable.ic_map_blue_grey_600_24dp);
@@ -156,6 +155,13 @@ public class MainActivity extends BaseActivity{
                 .withHeaderBackground(R.color.primary)
                 .build();
 
+        setDrawer(mViewPager.getToolbar(), activity, itemMain, itemMap, itemSettings, headerResult,1);
+
+    }
+
+    private Drawer setDrawer(final Toolbar toolbar, Activity activity, final PrimaryDrawerItem itemMain,
+                           final PrimaryDrawerItem itemMap, final PrimaryDrawerItem itemSettings,
+                           final AccountHeader headerResult,int position) {
         Drawer result = new DrawerBuilder()
                 .withActivity(activity)
                 .withToolbar(toolbar)
@@ -170,7 +176,7 @@ public class MainActivity extends BaseActivity{
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                    public boolean onItemClick(final View view, final int position, final IDrawerItem drawerItem) {
                         switch (position) {
                             case 1:
                                 mViewPager.setVisibility(View.VISIBLE);
@@ -186,6 +192,12 @@ public class MainActivity extends BaseActivity{
                                 mToolbar.setTitle("Карта кинотеатров");
                                 setSupportActionBar(mToolbar);
                                 mToolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
+                                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        setDrawer(mToolbar,MainActivity.this,itemMain,itemMap,itemSettings,headerResult,2).openDrawer();
+                                    }
+                                });
                                 mFrame.setVisibility(View.VISIBLE);
                                 mViewPager.setVisibility(View.GONE);
                                 FragmentNavigator.showMapFragment(MainActivity.this,cityID);
@@ -197,9 +209,9 @@ public class MainActivity extends BaseActivity{
                         }
                         return false;
                     }
-                })
+                }).withSelectedItemByPosition(position)
                 .build();
-
+        return result;
     }
 
 }

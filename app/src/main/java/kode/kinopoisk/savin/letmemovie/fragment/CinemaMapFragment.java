@@ -73,18 +73,19 @@ public class CinemaMapFragment extends Fragment implements OnMapReadyCallback,Go
     }
 
     private void showCinemasOnMap() {
-        MarkerOptions options;
+        MarkerOptions options = new MarkerOptions();
         for(int i = 0; i< cinemaModels.size();i++) {
+            if(cinemaModels.get(i).getLat()!=null&&cinemaModels.get(i).getLon()!=null){
             options = new MarkerOptions().position(
                     new LatLng(Float.parseFloat(cinemaModels.get(i).getLat()),
-                            Float.parseFloat(cinemaModels.get(i).getLon()) )
-            );
-            options.title(cinemaModels.get(i).getCinemaName());
-            BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher);
-            options.icon(icon);
-            markerArrayList.add((mGoogleMap.addMarker(options)));
-            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(options.getPosition().latitude,options.getPosition().longitude),12));
+                            Float.parseFloat(cinemaModels.get(i).getLon())));
+                    options.title(cinemaModels.get(i).getCinemaName());
+                BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher);
+                options.icon(icon);
+                markerArrayList.add((mGoogleMap.addMarker(options)));}
         }
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(options.getPosition().latitude,options.getPosition().longitude),12));
+
     }
 
     @Override

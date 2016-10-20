@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -35,6 +36,10 @@ public class CinemaActivity extends BaseActivity {
     RatingBar ratingText;
     @Bind(R.id.fab)
     FloatingActionButton mFab;
+    @Bind(R.id.progress)
+    ProgressBar mProgressBar;
+    @Bind(R.id.noSeancesText)
+    TextView noSeancesText;
 
 
     @Override
@@ -89,13 +94,20 @@ public class CinemaActivity extends BaseActivity {
     }
 
     private void setCinemaViewElements(CinemaDetailData cinemaDetail) {
+        if(cinemaDetail.getCinemaDetail()==null)
+            if(cinemaDetail.getCinemaDetail().getSeance()==null)
+                noSeancesText.setVisibility(View.VISIBLE);
+        else
+            if(cinemaDetail.getCinemaDetail().getSeance().getItems().size()!=0)
+                noSeancesText.setVisibility(View.GONE);
+        mProgressBar.setVisibility(View.GONE);
         mCinemaNameText.setText(cinemaDetail.getCinemaDetail().getCinemaName());
         mTelephoneText.setText(cinemaDetail.getCinemaDetail().getCinemaTelephone());
         mSiteText.setText(cinemaDetail.getCinemaDetail().getCinemaUrl());
         ratingText.setVisibility(View.VISIBLE);
         ratingText.setNumStars(5);
         if(cinemaDetail.getCinemaDetail().getRating()!=null)
-        ratingText.setRating(Float.parseFloat(cinemaDetail.getCinemaDetail().getRating()));
+            ratingText.setRating(Float.parseFloat(cinemaDetail.getCinemaDetail().getRating()));
 
         if(cinemaDetail.getCinemaDetail().getSeance()!=null) {
             SeanceItemRVAdapter adapter = new SeanceItemRVAdapter(CinemaActivity.this,

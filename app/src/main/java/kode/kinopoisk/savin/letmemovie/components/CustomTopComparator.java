@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.IMovie;
 
-public class CustomComparator implements Comparator<IMovie> {
+public class CustomTopComparator implements Comparator<IMovie> {
 
     @Override
     public int compare(IMovie lhs, IMovie rhs) {

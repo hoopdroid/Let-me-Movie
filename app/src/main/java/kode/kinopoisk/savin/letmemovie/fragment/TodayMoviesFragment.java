@@ -12,13 +12,13 @@ import java.util.Collections;
 
 import kode.kinopoisk.savin.letmemovie.R;
 import kode.kinopoisk.savin.letmemovie.adapters.movie.MoviesRVAdapter;
-import kode.kinopoisk.savin.letmemovie.components.CustomComparator;
+import kode.kinopoisk.savin.letmemovie.components.CustomTopComparator;
 import kode.kinopoisk.savin.letmemovie.components.CustomLowComparator;
 import kode.kinopoisk.savin.letmemovie.data.DataService;
 import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.TodayMovieData;
 
 /**
- * Created by florentchampigny on 24/04/15.
+ * Created by Elay Savin
  */
 public class TodayMoviesFragment extends AbstractMoviesFragment {
 
@@ -43,6 +43,7 @@ public class TodayMoviesFragment extends AbstractMoviesFragment {
         DataService.init().getTodayMovies(new DataService.onRequestMoviesResult() {
             @Override
             public void onRequestMoviesResult(TodayMovieData todayMovieData) {
+                showFab();
                 mProgressBar.setVisibility(View.GONE);
                 mContentItems = todayMovieData.getFilmsData();
                 mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
@@ -59,7 +60,7 @@ public class TodayMoviesFragment extends AbstractMoviesFragment {
         switch (v.getId()) {
             case R.id.menu_item1:
                 Toast.makeText(getActivity(), "Сортировка по убыванию рейтинга", Toast.LENGTH_SHORT).show();
-                Collections.sort(mContentItems,new CustomComparator());
+                Collections.sort(mContentItems,new CustomTopComparator());
                 floatingActionMenu.close(true);
                 mAdapter.notifyDataSetChanged();
                 break;

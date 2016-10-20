@@ -77,7 +77,6 @@ public class MovieActivity extends BaseActivity {
            mPostImage.setTransitionName(Constants.IMAGE_TRANSITION);
         }
 
-        mToolbar.setTitle(mMovieModel.getNameRU());
         setSupportActionBar(mToolbar);
 
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
@@ -88,7 +87,6 @@ public class MovieActivity extends BaseActivity {
             }
         });
         mToolbar.showOverflowMenu();
-
 
         mBottomSheetBehavior = BottomSheetBehavior.from(mBottomSheet);
         mBottomSheet.setNestedScrollingEnabled(false);
@@ -115,10 +113,11 @@ public class MovieActivity extends BaseActivity {
                     mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 }
                 else {
-                mGetSeancesFab.setImageResource(R.drawable.ic_action_navigation_close_inverted);
-                getMovieSeance();
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                isBottomSheetOpened = true;}
+                    if(mMovieModel!=null){
+                        mGetSeancesFab.setImageResource(R.drawable.ic_action_navigation_close_inverted);
+                        getMovieSeance();
+                        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                        isBottomSheetOpened = true;}}
             }
         });
 
@@ -128,16 +127,18 @@ public class MovieActivity extends BaseActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         seanceMovieRV.setLayoutManager(layoutManager);
 
-        Picasso.with(this).load(ImageUrlPatterMatcher.getImageUrl(this, mMovieModel.getPosterURL()))
-                .into(mPostImage);
-
-        FragmentNavigator.showStaffFragment(this, StaffFragment.newInstance(this, mMovieModel.getId()));
-        FragmentNavigator.showInfoFragment(this, FilmInfoFragment.newInstance(this, mMovieModel.getId()));
-
-
-        if(mMovieModel instanceof SoonMovieModel)
+        if(mMovieModel!=null) {
+            if(mMovieModel instanceof SoonMovieModel)
             mGetSeancesFab.setVisibility(GONE);
 
+            if(mMovieModel.getPosterURL()!=null)
+                Picasso.with(this).load(ImageUrlPatterMatcher.getImageUrl(this, mMovieModel.getPosterURL()))
+                        .into(mPostImage);
+
+            FragmentNavigator.showStaffFragment(this, StaffFragment.newInstance(this, mMovieModel.getId()));
+            FragmentNavigator.showInfoFragment(this, FilmInfoFragment.newInstance(this, mMovieModel.getId()));
+            mToolbar.setTitle(mMovieModel.getNameRU());
+            }
 
     }
 
@@ -157,8 +158,12 @@ public class MovieActivity extends BaseActivity {
 
     private void setMovieSeanceView(MovieSeanceData movieSeanceData) {
         mSeanceTitleText.setText("Сеансы "+ DateUtil.getTodayDate());
-        SeanceRVAdapter adapter = new SeanceRVAdapter(MovieActivity.this,movieSeanceData.getSeanceModels());
-        seanceMovieRV.setAdapter(adapter);
+        SeanceRVAdapter adapter;
+        if(movieSeanceData.getSeanceModels().size()>=10)
+            adapter = new SeanceRVAdapter(MovieActivity.this,movieSeanceData.getSeanceModels().subList(0,10));
+        else
+            adapter = new SeanceRVAdapter(MovieActivity.this,movieSeanceData.getSeanceModels());
+            seanceMovieRV.setAdapter(adapter);
     }
 
 

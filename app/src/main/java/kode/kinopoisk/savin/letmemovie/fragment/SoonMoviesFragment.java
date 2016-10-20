@@ -19,7 +19,7 @@ import kode.kinopoisk.savin.letmemovie.data.models.movies.movie.SoonMovieModel;
 
 
 /**
- * Created by florentchampigny on 24/04/15.
+ * Created by Elay Savin.
  */
 public class SoonMoviesFragment extends AbstractMoviesFragment {
 
