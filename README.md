@@ -1,6 +1,6 @@
 # Let-me-Movie
 Let me Movie android app
-### DOWNLOAD APK LINK https://drive.google.com/open?id=0B2TD8zebQE3JSXRZOGNNNndQZzA
+### https://play.google.com/store/apps/details?id=kode.kinopoisk.savin.letmemovie
 
 ![alt text](https://pp.vk.me/c630028/v630028401/4c270/Svs1yBzlaXc.jpg "LetMeMovie")
 ![alt text](https://pp.vk.me/c630028/v630028401/4c268/vHHtlnTOr88.jpg)
